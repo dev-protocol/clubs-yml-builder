@@ -33,7 +33,7 @@ function App() {
   const [config, setConfig] = useState<Config>(initBuild());
 
   return (
-    <div className="bg-white dark:bg-gray-800 text-black dark:text-white min-h-screen">
+    <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
       <header className="container mx-auto mb-8 py-4 px-2">
         <h1>Clubs YML Builder</h1>
       </header>

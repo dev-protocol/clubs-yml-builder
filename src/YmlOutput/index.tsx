@@ -13,7 +13,11 @@ const YmlOutput: React.FC<YmlOutputProps> = ({ config }) => {
     setYml(stringify(config));
   }, [config]);
 
-  return <pre className="text-black dark:text-white">{yml}</pre>;
+  return (
+    <pre className="rounded-xl bg-gradient-to-r border border-gray-200 dark:border-gray-700 p-2 sm:p-6 dark:bg-gray-800 text-black dark:text-white">
+      {yml}
+    </pre>
+  );
 };
 
 export default YmlOutput;
