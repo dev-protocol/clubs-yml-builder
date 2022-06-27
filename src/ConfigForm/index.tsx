@@ -2,12 +2,12 @@ import React from "react";
 import { Config } from "../types";
 import Input from "./Input";
 
-interface ConfigInputProps {
+interface ConfigFormProps {
   config: Config;
   setConfig: React.Dispatch<React.SetStateAction<Config>>;
 }
 
-const ConfigInput: React.FC<ConfigInputProps> = ({ config, setConfig }) => {
+const ConfigForm: React.FC<ConfigFormProps> = ({ config, setConfig }) => {
   return (
     <div>
       <div>
@@ -69,4 +69,4 @@ const ConfigInput: React.FC<ConfigInputProps> = ({ config, setConfig }) => {
   );
 };
 
-export default ConfigInput;
+export default ConfigForm;

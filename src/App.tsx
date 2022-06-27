@@ -1,7 +1,7 @@
 import { useState } from "react";
 import YmlOutput from "./YmlOutput";
 import { Config } from "./types";
-import ConfigInput from "./ConfigInput";
+import ConfigForm from "./ConfigForm";
 
 function App() {
   const initBuild = (): Config => ({
@@ -38,7 +38,7 @@ function App() {
         <h1>Clubs YML Builder</h1>
       </header>
       <main className="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 px-2">
-        <ConfigInput config={config} setConfig={setConfig} />
+        <ConfigForm config={config} setConfig={setConfig} />
         <YmlOutput config={config} />
       </main>
     </div>
