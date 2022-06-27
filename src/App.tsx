@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen">
       <header className="container mx-auto mb-8 py-4 px-2">
-        <h1>Clubs YML Builder</h1>
+        <h1 className="font-bold">Clubs YML Builder</h1>
       </header>
       <main className="container mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 px-2">
         <ConfigForm config={config} setConfig={setConfig} />
