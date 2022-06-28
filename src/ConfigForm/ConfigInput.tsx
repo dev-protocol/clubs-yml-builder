@@ -1,7 +1,9 @@
 import React from "react";
 import { Config } from "../types";
+import { isNumberInput } from "../utils";
+import ConfigInputLabel from "./ConfigInputLabel";
 
-interface InputProps {
+interface ConfigInputProps {
   label: string;
   value: string;
   id: string;
@@ -10,7 +12,7 @@ interface InputProps {
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-const Input: React.FC<InputProps> = ({
+const ConfigInput: React.FC<ConfigInputProps> = ({
   label,
   value,
   id,
@@ -20,21 +22,21 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <div className="mb-4">
-      <label
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        htmlFor={id}
-      >
-        {label}
-      </label>
+      <ConfigInputLabel text={label} htmlFor={id} />
       <input
         id={id}
         value={value}
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         placeholder={placeholder}
-        onChange={onChange}
+        onChange={(e) => {
+          if (!isNumeric || (isNumeric && isNumberInput(e.target.value))) {
+            console.log("change is: ", e.target.value);
+            onChange(e);
+          }
+        }}
       />
     </div>
   );
 };
 
-export default Input;
+export default ConfigInput;
