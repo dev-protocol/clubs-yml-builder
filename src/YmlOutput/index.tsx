@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Config } from "../types";
-import { stringify } from "yaml";
 import { FaRegCopy } from "react-icons/fa";
+import { useConfigContext } from "../config/hook";
 
-interface YmlOutputProps {
-  config: Config;
-}
+interface YmlOutputProps {}
 
-const YmlOutput: React.FC<YmlOutputProps> = ({ config }) => {
-  const [yml, setYml] = useState<string>("");
+const YmlOutput: React.FC<YmlOutputProps> = () => {
+  const { output } = useConfigContext();
   const [copySuccess, setCopySuccess] = useState(false);
 
   useEffect(() => {
-    setYml(stringify(config));
-  }, [config]);
+    console.log("YmlOutput recognizes change: ");
+  }, [output]);
 
   const copy = () => {
-    navigator.clipboard.writeText(yml);
+    navigator.clipboard.writeText(output);
     setCopySuccess(true);
     setTimeout(() => {
       setCopySuccess(false);
@@ -35,7 +32,7 @@ const YmlOutput: React.FC<YmlOutputProps> = ({ config }) => {
           <span className="text-sm text-gray-600">YML Copied</span>
         )}
       </div>
-      <pre className="text-sm">{yml}</pre>
+      <pre className="text-sm">{output}</pre>
     </div>
   );
 };

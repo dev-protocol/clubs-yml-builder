@@ -1,5 +1,4 @@
 import React from "react";
-import { Config } from "../types";
 import { isNumberInput } from "../utils";
 import ConfigInputLabel from "./ConfigInputLabel";
 
